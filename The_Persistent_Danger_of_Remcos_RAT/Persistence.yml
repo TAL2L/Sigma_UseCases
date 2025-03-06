@@ -22,7 +22,3 @@ fields:
 falsepositives:
     - Unknown
 level: high
-
-
-
-HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run”, “HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run”, to gain persistence. 
