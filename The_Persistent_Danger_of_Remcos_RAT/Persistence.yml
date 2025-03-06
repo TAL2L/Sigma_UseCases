@@ -1,0 +1,28 @@
+title: Detect Registry Changes for Remcos Persistence
+id: f06f4723-2bcc-4944-a517-7608fe80b7da
+status: experimental
+description: 
+    This rule detects changes to the run keys in registery to detect persistece techniques
+author: Talal
+date: 2025-03-07
+logsource:
+    category: registry
+    product: windows
+detection:
+    selection:
+        RegistryKey|contains:
+            - 'HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run'
+            - 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run'
+    condition: selection
+fields:
+    - RegistryKey
+    - RegistryValueName
+    - RegistryValueData
+    - ComputerName
+falsepositives:
+    - Unknown
+level: high
+
+
+
+HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run”, “HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run”, to gain persistence. 
