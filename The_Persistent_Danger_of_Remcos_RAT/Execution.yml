@@ -1,0 +1,63 @@
+# Execution of malicous batch script, exe related to Remcos RAT... 
+
+title: Batch file responsible for executing several malicious commands
+id: e99b2698-7db9-44a4-beda-3a05d836bc1c
+status: experimental
+description: This rules is designed to detect execution of a malicious batch script of Remcos RAT
+references:
+    - https://www.cyfirma.com/research/the-persistent-danger-of-remcos-rat/
+author: Talal
+date: 2025-03-07
+tags:
+    - T1566: Execution.T1059.001
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_powershell:
+        Image:
+            - '*\\powershell.exe'
+        CommandLine|contains|all:
+            - 'Add-MpPreference -ExclusionExtension ".exe"'
+            - 'Invoke-WebRequest'
+            - 'RiotGames.exe'
+    condition: selection_powershell
+fields:
+  - Image
+  - CommandLine
+falsepositives:
+    - Unknown
+level: high
+
+# Execution of malicious files related to Remcos RAT. 'RiotGames.exe and terminal.exe'
+
+title: Malicious files got executed
+id: 76fd565b-0387-4320-855d-9dac85a4486d
+status: experimental
+description: This rules is designed to detect execution of a malicious batch script of Remcos RAT
+references:
+    - https://www.cyfirma.com/research/the-persistent-danger-of-remcos-rat/
+author: Talal
+date: 2025-03-07
+tags:
+    - Execution.T1204.002
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection_cmd:
+        Image:
+            - '*\\RiotGames.exe'
+            - '*\\terminal.exe'
+        FileHash:
+            - '5379d703170770355efdbce86dcdb1d3'
+    condition: selection_cmd
+fields:
+  - Image
+  - FileHash
+infalsepositives:
+    - Unknown
+level: high
+
+
+
