@@ -1,0 +1,38 @@
+# Use case for checking the existance of malicous files related to Remcos RAT
+title: Detection of Malicious Batch and ExE Files Creation
+id: 9345ae0d-9dc9-49e7-b23e-a682bad3045b
+status: experimental
+description: Detects recover.bat and RiotGames.exe with a specfic hashes related to Remcos RAT
+references:
+    - https://www.cyfirma.com/research/the-persistent-danger-of-remcos-rat/
+author: Talal
+date: 2025-03-06
+tags:
+    - 
+logsource:
+    category: file_create
+    product: windows
+detection:
+    selection:
+        FileName:
+            - 'recover.bat'
+            - 'RiotGames.exe'
+            - 'newpy.exe'
+            - 'echo-4662-2DF5.exe'
+            - '123.exe'
+        FileHash:
+            - '4fa02ec602055dfbdb1d639b3d265d8f7b20d6cd328fdb62dd77b7a1aad5829a'
+            - '9d8282d54901d4e795f0469a5191242b2e7b3b0c51f810f71c739bfff52de8d5'
+            - 'b28167faf2bcf0150d5e816346abb42d'
+            - '25fca21c810a8ffabf4fdf3b1755c73c'
+            - '791545E6E3C5EB61DD12CCFBAE1B9982'
+    condition: selection
+fields:
+  - FileName
+  - FileHash
+falsepositives:
+    - Unknown
+level: critical
+
+
+
