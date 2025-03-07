@@ -1,4 +1,4 @@
-# Victim's location discovery
+# Victim's location Collection 
 
 title: Geo Location Discovery Remcos RAT
 id: e9ecaf1f-cddd-4688-984f-d4f1153a9fee
@@ -39,7 +39,7 @@ references:
 author: 
 date: 2025-03-07
 tags:
-    - 
+    - T1056.001: Input Capture: Keylogging
 logsource:
     category: file_creation
     product: window
@@ -51,5 +51,5 @@ detection:
             - 'C:\\ProgramData\\Terminal'
     condition: selection
 falsepositives:
-    - Unknown
+    - No false positivies 
 level: critical
