@@ -24,5 +24,5 @@ fields:
     - RegistryValueData
     - ComputerName
 falsepositives:
-    - legitmate changes
+    - legitmate changes by administrators
 level: critical
