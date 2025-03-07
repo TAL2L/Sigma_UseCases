@@ -1,0 +1,51 @@
+title: Geo Location Discovery Remcos RAT
+id: e9ecaf1f-cddd-4688-984f-d4f1153a9fee
+status: experimental
+description: Discover victm's location using URL geo checker
+references:
+    - https://www.cyfirma.com/research/the-persistent-danger-of-remcos-rat/
+author:
+date: 2025-03-07
+tags:
+    - 
+logsource:
+    category: network
+    product: windows
+detection:
+    selection:
+       DestinationUrl|contains:
+           - 'geoplugin.net/json.gp'
+    condition: selection
+fields:
+    - DestinationUrl
+    - SourceIP
+    - DestinationIP
+    - ComputerName
+falsepositives:
+    - Unknown
+level: medium
+
+
+title: Detect keylogging in Remcos RAT
+id: e8d3992a-49e0-4786-bbbd-f6a19de85791
+status: experimental
+description: Detects keyloggin file related to Remcos RAT
+references:
+    - https://www.cyfirma.com/research/the-persistent-danger-of-remcos-rat/
+author: 
+date: 2025-03-07
+tags:
+    - 
+logsource:
+    category: file_creation
+    product: window
+detection:
+    selection:
+        FileName|contains:
+            - 'logs.dat'
+        FilePath|contains:
+            - 'C:\\ProgramData\\Terminal'
+    condition: selection
+falsepositives:
+    - Unknown
+level: critical
