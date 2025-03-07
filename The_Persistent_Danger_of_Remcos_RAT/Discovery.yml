@@ -29,7 +29,7 @@ level: medium
 title: Detect keylogging in Remcos RAT
 id: e8d3992a-49e0-4786-bbbd-f6a19de85791
 status: experimental
-description: Detects keyloggin file related to Remcos RAT
+description: Detects keylogging file related to Remcos RAT placed at Terminal folder
 references:
     - https://www.cyfirma.com/research/the-persistent-danger-of-remcos-rat/
 author: 
