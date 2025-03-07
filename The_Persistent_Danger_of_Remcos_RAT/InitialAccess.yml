@@ -8,7 +8,7 @@ references:
 author: Talal
 date: 2025-03-06
 tags:
-    - 
+    - T1566: Phishing
 logsource:
     category: file_create
     product: windows
