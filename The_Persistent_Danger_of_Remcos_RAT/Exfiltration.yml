@@ -1,4 +1,4 @@
-title: Traffic to C2 IP 
+title: Traffic outbounds to C2 IP 
 id: f8208c66-900b-4214-ad5c-64dec993d00b
 status: experimental
 description: Traffic to c2 ip.
@@ -10,6 +10,7 @@ logsource:
   product: network
 detection:
   selection:
+    network.direction: "outbound"
     DestinationIP: '141.95.16.111:8080'
   condition: selection
 fields:
