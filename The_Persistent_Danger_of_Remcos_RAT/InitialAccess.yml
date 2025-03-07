@@ -26,7 +26,7 @@ detection:
             - 'b28167faf2bcf0150d5e816346abb42d'
             - '25fca21c810a8ffabf4fdf3b1755c73c'
             - '791545E6E3C5EB61DD12CCFBAE1B9982'
-    condition: 1 of selection.FileHash or (selection.FileName and selection.FileHash)
+    condition: selection.FileHash or (selection.FileName and selection.FileHash)
 fields:
   - FileName
   - FilePath
