@@ -29,7 +29,10 @@ detection:
     condition: selection
 fields:
   - FileName
+  - FilePath
   - FileHash
+  - HostName
+  - Timestamp
 falsepositives:
     - Unknown
 level: critical
