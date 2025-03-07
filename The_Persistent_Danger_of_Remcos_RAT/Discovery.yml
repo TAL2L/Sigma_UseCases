@@ -1,3 +1,5 @@
+# Victim's location discovery
+
 title: Geo Location Discovery Remcos RAT
 id: e9ecaf1f-cddd-4688-984f-d4f1153a9fee
 status: experimental
@@ -25,6 +27,8 @@ falsepositives:
     - Unknown
 level: medium
 
+
+# Discover the existance of log.dat that log every key press related to Remcos RAT
 
 title: Detect keylogging in Remcos RAT
 id: e8d3992a-49e0-4786-bbbd-f6a19de85791
