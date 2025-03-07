@@ -1,0 +1,23 @@
+title: Traffic to C2 IP 
+id: f8208c66-900b-4214-ad5c-64dec993d00b
+status: experimental
+description: Traffic to c2 ip.
+author: Talal
+date: 2025-03-07
+tags: T1041 – Exfiltration Over Command-and-Control Channel
+logsource:
+  category: network_traffic
+  product: network
+detection:
+  selection:
+    DestinationIP: '141.95.16.111:8080'
+  condition: selection
+fields:
+  - Timestamp
+  - SourceIP
+  - DestinationIP
+  - DestinationPort
+falsepositives:
+    - No false positive
+level: critical
+
