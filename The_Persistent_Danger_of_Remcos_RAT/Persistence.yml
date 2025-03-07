@@ -1,9 +1,15 @@
-title: Detect Registry Changes for Remcos Persistence
+# Detect a sub key pointing to a malicous file related to Remcos RAT for gaining persistence
+
+title: Detect Registry Changes for Remcos RAT to achieve Persistence
 id: f06f4723-2bcc-4944-a517-7608fe80b7da
 status: experimental
 description: 
     This rule detects changes to the run keys in registery to detect persistece techniques
 author: Talal
+references:
+    - https://www.cyfirma.com/research/the-persistent-danger-of-remcos-rat/
+tags: 
+    T1547.001: Registry Run Keys
 date: 2025-03-07
 logsource:
     category: registry
@@ -13,6 +19,8 @@ detection:
         RegistryKey|contains:
             - 'HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run'
             - 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run'
+        RegistryValueData|contains:
+            - 'C:\\programdata\\terminal\\terminal.exe'    
     condition: selection
 fields:
     - RegistryKey
@@ -20,5 +28,5 @@ fields:
     - RegistryValueData
     - ComputerName
 falsepositives:
-    - Unknown
+    - If terminal.exe hash does not match the malicious hash related to Remcos RAT 
 level: high
