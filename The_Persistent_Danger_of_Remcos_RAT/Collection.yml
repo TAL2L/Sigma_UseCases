@@ -6,10 +6,10 @@ status: experimental
 description: Discover victm's location using URL geo checker
 references:
     - https://www.cyfirma.com/research/the-persistent-danger-of-remcos-rat/
-author:
+author: Talal
 date: 2025-03-07
 tags:
-    - 
+    - TA0009: Collection 
 logsource:
     category: network
     product: windows
@@ -36,7 +36,7 @@ status: experimental
 description: Detects keylogging file related to Remcos RAT placed at Terminal folder
 references:
     - https://www.cyfirma.com/research/the-persistent-danger-of-remcos-rat/
-author: 
+author: Talal
 date: 2025-03-07
 tags:
     - T1056.001: Input Capture: Keylogging
