@@ -1,4 +1,6 @@
-title: Detect Registry Changes for Remcos RAT
+# Elevating privliges by bypassing UAC prompt
+
+title: Detect Registry Changes for Remcos RAT that modifies UAC config
 id: d70b2a48-1f82-4a54-9eb3-3bb21ad88216
 status: experimental
 description: UAC modification lead to elevate privliges
