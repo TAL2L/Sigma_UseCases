@@ -14,20 +14,27 @@ logsource:
     category: process_creation
     product: windows
 detection:
-    selection_powershell:
+    selection:
         Image:
             - '*\\powershell.exe'
         CommandLine|contains|all:
             - 'Add-MpPreference -ExclusionExtension ".exe"'
             - 'Invoke-WebRequest'
             - 'RiotGames.exe'
-    condition: selection_powershell
+    condition: selection
 fields:
+  - Timestamp
+  - ComputerName
+  - User
+  - ParentImage
   - Image
+  - ParentCommandLine
   - CommandLine
+  - ParentProcessId
+  - ProcessId
 falsepositives:
     - Unknown
-level: high
+level: critical
 
 # Execution of malicious files related to Remcos RAT. 'RiotGames.exe and terminal.exe'
 
@@ -47,16 +54,23 @@ logsource:
 detection:
     selection_cmd:
         Image:
-            - '*\\RiotGames.exe'
-            - '*\\terminal.exe'
+            - '%userprofile%\\AppData\\Local\\Temp\\RiotGames.exe'
+            - 'C:\\ProgramData\\Terminal\\terminal.exe'
         FileHash:
             - '5379d703170770355efdbce86dcdb1d3'
     condition: selection_cmd
 fields:
+  - Timestamp
+  - ComputerName
+  - User
+  - ParentImage
   - Image
-  - FileHash
-infalsepositives:
-    - No falsepositives cause hash is matched to malicous file.
+  - ParentCommandLine
+  - CommandLine
+  - ParentProcessId
+  - ProcessId
+falsepositives:
+    - No false positives cause hash is matched to malicous file.
 level: critical
 
 
