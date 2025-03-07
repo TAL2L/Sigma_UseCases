@@ -34,7 +34,7 @@ level: high
 title: Malicious files got executed
 id: 76fd565b-0387-4320-855d-9dac85a4486d
 status: experimental
-description: This rules is designed to detect execution of a malicious batch script of Remcos RAT
+description: This rules is designed to detect execution of a malicious binary file  related to Remcos RAT
 references:
     - https://www.cyfirma.com/research/the-persistent-danger-of-remcos-rat/
 author: Talal
@@ -56,8 +56,8 @@ fields:
   - Image
   - FileHash
 infalsepositives:
-    - Unknown
-level: high
+    - No falsepositives cause hash is matched to malicous file.
+level: critical
 
 
 
