@@ -30,4 +30,4 @@ fields:
     - ComputerName
 falsepositives:
     - If terminal.exe hash does not match the malicious hash related to Remcos RAT.
-level: high
+level: critical
