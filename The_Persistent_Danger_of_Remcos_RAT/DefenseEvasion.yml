@@ -1,0 +1,26 @@
+title: Detect Registry Changes for Remcos RAT
+id: d70b2a48-1f82-4a54-9eb3-3bb21ad88216
+status: experimental
+description: UAC modification lead to elevate privliges
+author: Talal
+date: 2025-03-07
+logsource:
+    category: registry
+    product: windows
+detection:
+    selection:
+        RegistryKey|contains:
+            - 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
+        RegisteryName|contains:
+            - 'EnableLUA'
+        RegistryValueData|contains:
+            - '0'
+    condition: selection
+fields:
+    - RegistryKey
+    - RegistryValueName
+    - RegistryValueData
+    - ComputerName
+falsepositives:
+    - legitmate changes
+level: critical
